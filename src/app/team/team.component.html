@@ -1,0 +1,56 @@
+<div class="all">
+  <table class="table">
+    <th colspan="3">clube</th>
+    <th>Pts</th>
+    <th>PJ</th>
+    <th>VIT</th>
+    <th>E</th>
+    <th>DER</th>
+    <th>GM</th>
+    <th>GC</th>
+    <th>SG</th>
+    <th>APR</th>
+    <th colspan="5">Últimas 5</th>
+    <tr *ngFor="let team of teams">
+      <td>{{ team.posicao }}</td>
+      <td><img src="{{ team.time.escudo }}" alt="" width="20px" /></td>
+      <td class="tdEspaco time" (click)="getTeam(team.posicao)">
+        {{ team.time.nome_popular }}
+      </td>
+      <td>{{ team.pontos }}</td>
+      <td>{{ team.jogos }}</td>
+      <td>{{ team.vitorias }}</td>
+      <td>{{ team.empates }}</td>
+      <td>{{ team.derrotas }}</td>
+      <td>{{ team.gols_pro }}</td>
+      <td>{{ team.gols_contra }}</td>
+      <td>{{ team.saldo_gols }}</td>
+      <td>{{ team.aproveitamento }}</td>
+      <td class="{{ team.ultimos_jogos[0] }}">{{ team.ultimos_jogos[0] }}</td>
+      <td class="{{ team.ultimos_jogos[1] }}">{{ team.ultimos_jogos[1] }}</td>
+      <td class="{{ team.ultimos_jogos[2] }}">{{ team.ultimos_jogos[2] }}</td>
+      <td class="{{ team.ultimos_jogos[3] }}">{{ team.ultimos_jogos[3] }}</td>
+      <td class="{{ team.ultimos_jogos[4] }}">{{ team.ultimos_jogos[4] }}</td>
+    </tr>
+  </table>
+  <div class="one-team" *ngIf="oneTeam">
+    <h1>{{ oneTeam.time.nome_popular }}</h1>
+    <img src="{{ oneTeam.time.escudo }}" alt="" width="100px" />
+    <div class="points">
+      <table>
+        <th>Pts</th>
+        <th>PJ</th>
+        <th>VIT</th>
+        <th>E</th>
+        <th>DER</th>
+        <tr>
+          <td>{{ oneTeam.pontos }}</td>
+          <td>{{ oneTeam.jogos }}</td>
+          <td>{{ oneTeam.vitorias }}</td>
+          <td>{{ oneTeam.empates }}</td>
+          <td>{{ oneTeam.derrotas }}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
